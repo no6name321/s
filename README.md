@@ -60,3 +60,11 @@ workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):Wait
 
    end,
 })
+
+local Button = MainTab:CreateButton({
+   Name = "Button Example",
+   Callback = function()
+         workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Shelf"):WaitForChild("Info"):FireServer()
+
+   end,
+})

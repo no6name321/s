@@ -33,10 +33,6 @@ local Button = MainTab:CreateButton({
    Name = "get milk",
    Callback = function()
        local args = {
-    [1] = workspace:WaitForChild("Ingredients"):WaitForChild("Flavor")
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TI_0"):FireServer(unpack(args))
 function getNil(name,class) for _,v in next, getnilinstances() do if v.ClassName==class and v.Name==name then return v;end end end
 
 local args = {

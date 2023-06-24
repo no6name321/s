@@ -41,11 +41,9 @@ local Toggle = MainTab:CreateToggle({
 			warn("[noob]: AutoGetIngredients Turned On!")
 			wait(0.5)
 			while getgenv().Variables3.AutoGetIngredients == true do
-function getNil(name,class) for _,v in next, getnilinstances() do if v.ClassName==class and v.Name==name then return v;end end end
+{ function getNil(name,class) for _,v in next, getnilinstances() do if v.ClassName==class and v.Name==name then return v;end end end
 
-local args = {
-    [1] = getNil("Milk", "MeshPart")
-}
+local args = { [1] = getNil("Milk", "MeshPart") }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TI_0"):FireServer(unpack(args))
 			end

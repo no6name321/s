@@ -51,24 +51,34 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TI_0"
 	end,
 })
 
-local Button = MainTab:CreateButton({
-   Name = "Button Example",
-   Callback = function()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Sand"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Old"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
-workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Ovens"):WaitForChild("Starter"):WaitForChild("ConverterData"):WaitForChild("__REMOTE"):FireServer()
+local Toggle = MainTab:CreateToggle({
+	Name = "Auto get Ingredients",
+	CurrentValue = false,
+	Flag = "Auto_get_Ingredients",
+	Callback = function(Value)
+		getgenv().Variables3.AutoGetIngredients = Value
+		if Value == false then
+			warn("[noob]: AutoGetIngredients Turned Off!")
+		elseif Value == true then
+			warn("[noob]: AutoGetIngredients Turned On!")
+			wait(0.5)
+			while getgenv().Variables3.AutoGetIngredients == true do
+local args = {
+    [1] = workspace:WaitForChild("Plots"):WaitForChild("Plot6"):WaitForChild("Ovens"):WaitForChild("Sand"),
+    [2] = "Cafe Brew"
+}
 
-   end,
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("StartBake"):FireServer(unpack(args))
+
+local args = {
+    [1] = workspace:WaitForChild("Plots"):WaitForChild("Plot6"):WaitForChild("Ovens"):WaitForChild("Honey"),
+    [2] = "Cafe Brew"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("StartBake"):FireServer(unpack(args))
+			end
+		end
+	end,
 })
 
 local Button = MainTab:CreateButton({

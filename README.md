@@ -3,7 +3,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "My Coffee Shop ☕ scripts",
    LoadingTitle = "Example Hub",
-   LoadingSubtitle = "by noob",
+   LoadingSubtitle = "[noob]",
    ConfigurationSaving = {
       Enabled = false,
       FolderName = nil, -- Create a custom folder for your hub/game
@@ -29,10 +29,18 @@ local Window = Rayfield:CreateWindow({
 local MainTab = Window:CreateTab("main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
-local Button = MainTab:CreateButton({
-   Name = "get milk",
-   Callback = function()
-       local args = {
+local Toggle = MainTab:CreateToggle({
+	Name = "Auto get Ingredients",
+	CurrentValue = false,
+	Flag = "Auto_get_Ingredients",
+	Callback = function(Value)
+		getgenv().Variables3.AutoGetIngredients = Value
+		if Value == false then
+			warn("[noob]: AutoGetIngredients Turned Off!")
+		elseif Value == true then
+			warn("[noob]: AutoGetIngredients Turned On!")
+			wait(0.5)
+			while getgenv().Variables3.AutoGetIngredients == true do
 function getNil(name,class) for _,v in next, getnilinstances() do if v.ClassName==class and v.Name==name then return v;end end end
 
 local args = {
@@ -40,8 +48,9 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TI_0"):FireServer(unpack(args))
-
-   end,
+			end
+		end
+	end,
 })
 
 local Button = MainTab:CreateButton({

@@ -79,7 +79,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Start
 })
 
 local Button = MainTab:CreateButton({
-   Name = "Button Example",
+   Name = "auto fram",
     Callback = function()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AnonyProArg/ScriptsRobloz/main/CoffeShop.lua"))()

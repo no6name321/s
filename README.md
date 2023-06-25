@@ -81,7 +81,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Start
 local Button = MainTab:CreateButton({
    Name = "Button Example",
    Callback = function()
-         workspace:WaitForChild("Plots"):WaitForChild("Plot1"):WaitForChild("Shelf"):WaitForChild("Info"):FireServer()
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AnonyProArg/ScriptsRobloz/main/CoffeShop.lua"))
    end,
 })
